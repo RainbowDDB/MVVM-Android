@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.graphics.Color" />
+
+        <variable
+            name="user"
+            type="com.rainbow.mvvm.entity.User" />
+
+        <variable
+            name="delegate"
+            type="com.rainbow.mvvm.main.TestDelegate" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{String.valueOf(user.id)}"
+            android:textColor="@{user.id>20?Color.RED:Color.BLACK}" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{user.name}"
+            android:textColor="@{user.name.equals(`Rainbow`)?Color.RED:Color.BLACK}" />
+
+        <Button
+            android:id="@+id/btn_change"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{delegate.onClick}"
+            android:text="hhh" />
+
+        <Button
+            android:id="@+id/btn_change2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{delegate.onClick}"
+            android:text="hhh2" />
+    </LinearLayout>
+</layout>

@@ -6,11 +6,11 @@ import android.support.v4.content.ContextCompat;
 
 import com.rainbow.latte.activity.ProxyActivity;
 import com.rainbow.latte.delegate.LatteDelegate;
-import com.rainbow.mvvm.main.MainDelegate;
+import com.rainbow.mvvm.main.TestDelegate;
 
 import qiu.niorgai.StatusBarCompat;
 
-public class TestActivity extends ProxyActivity {
+public class MainActivity extends ProxyActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,6 +21,6 @@ public class TestActivity extends ProxyActivity {
 
     @Override
     public LatteDelegate setRootDelegate() {
-        return new MainDelegate();
+        return new TestDelegate();
     }
 }
