@@ -12,8 +12,6 @@ import com.rainbow.latte.activity.ProxyActivity;
 
 import org.jetbrains.annotations.NotNull;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
@@ -22,7 +20,6 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
  */
 public abstract class BaseDelegate extends SwipeBackFragment {
 
-    private Unbinder mUnbinder = null;
     private View mRootView = null;
 
     public abstract Object setLayout();
@@ -49,7 +46,6 @@ public abstract class BaseDelegate extends SwipeBackFragment {
         }
         if (rootView != null) {
             mRootView = rootView;
-            mUnbinder = ButterKnife.bind(this, rootView);
             onBindView(savedInstanceState, rootView);
         }
         return attachToSwipeBack(rootView);
@@ -62,8 +58,5 @@ public abstract class BaseDelegate extends SwipeBackFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (mUnbinder != null) {
-            mUnbinder.unbind();
-        }
     }
 }

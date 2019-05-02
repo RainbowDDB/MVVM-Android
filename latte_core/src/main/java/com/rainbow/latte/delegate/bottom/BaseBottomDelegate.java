@@ -13,14 +13,12 @@ import android.widget.TextView;
 
 import com.joanzapata.iconify.widget.IconTextView;
 import com.rainbow.latte.R;
-import com.rainbow.latte.R2;
 import com.rainbow.latte.delegate.LatteDelegate;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import butterknife.BindView;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -32,7 +30,7 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
     private final ArrayList<BottomItemDelegate> ITEM_DELEGATES = new ArrayList<>();
     private final ArrayList<BottomTabBean> TAB_BEANS = new ArrayList<>();
     private final LinkedHashMap<BottomTabBean, BottomItemDelegate> ITEMS = new LinkedHashMap<>();
-    @BindView(R2.id.bottom_bar)
+
     LinearLayout mBottomBar = null;
     private int mCurrentDelegate = 0; // 当前页面index
     private int mIndexDelegate = 0; // 进入首次展示的页面index
@@ -71,6 +69,7 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
+        mBottomBar = $(R.id.bottom_bar);
         final int size = ITEMS.size();
         for (int i = 0; i < size; i++) {
             LayoutInflater.from(getContext()).inflate(R.layout.bottom_item_icon_text_layout, mBottomBar);
